@@ -47,23 +47,22 @@ class ClientsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $client
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        return view('admin.clients.show',compact('client'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        $client = Client::findorfail($id);
         return view('admin.clients.edit', compact('client'));
     }
 
@@ -71,12 +70,11 @@ class ClientsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-        $client = Client::findOrFail($id);
         $this->_validate($request);
         $data = $request->all();
         $data['defaulter'] = $request->has('defaulter');
