@@ -2,7 +2,7 @@
 
 @section('content')
     <h3>Novo Cliente</h3>
-    <form action="/admin/clients" method="post">
+    <form action="{{ route('clients.store') }}" method="post">
         {{csrf_field()}}
         <div class="form-group">
             <label for="name">Nome</label>
