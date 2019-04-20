@@ -76,13 +76,13 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $client = Client::findorfail($id);
+        $client = Client::findOrFail($id);
         $this->_validate($request);
         $data = $request->all();
         $data['defaulter'] = $request->has('defaulter');
         $client->fill($data);
         $client->save();
-        return redirect()->to('clients.index');
+        return redirect()->route('clients.index');
 
     }
 
