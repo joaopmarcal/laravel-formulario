@@ -2,6 +2,13 @@
 
 @section('content')
     <h3>Novo Cliente</h3>
+    @if($errors->any())
+        <ul class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
     <form action="{{ route('clients.store') }}" method="post">
         {{csrf_field()}}
         <div class="form-group">
