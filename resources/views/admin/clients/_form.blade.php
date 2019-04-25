@@ -19,6 +19,7 @@
     <label for="phone">Telefone</label>
     <input class="form-control" id="phone" name="phone" value="{{old('phone',$client->phone)}}">
 </div>
+@if($clientType == \App\Client::TYPE_INDIVIDUAL)
 
 @php
     $maritalStatus = $client->marital_status;
@@ -53,6 +54,12 @@
     <label for="physical_disability">Deficiência Física</label>
     <input class="form-control" id="physical_disability" name="physical_disability" value="{{old('physical_disability',$client->physical_disability)}}">
 </div>
+    @else
+    <div class="form-group">
+        <label for="company_name">Nome Fantasia</label>
+        <input class="form-control" id="comapny_name" name="company_name" value="{{old('compapny_name',$client->company_name)}}">
+    </div>
+@endif
 <div class="checkbox">
     <label>
         <input id="defaulter" name="defaulter" type="checkbox" value="{{old('defaulter',$client->defaulter) ? 'checked="checked"':''}}"> Inadimplente?
