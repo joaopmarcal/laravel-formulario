@@ -1,5 +1,5 @@
 {{csrf_field()}}
-
+<input type="hidden" name="client_type" value="{{$clientType}}">
 <div class="form-group">
     <label for="name">Nome</label>
     <input class="form-control" id="name" name="name" value="{{old('name',$client->name)}}">
@@ -62,6 +62,6 @@
 @endif
 <div class="checkbox">
     <label>
-        <input id="defaulter" name="defaulter" type="checkbox" value="{{old('defaulter',$client->defaulter) ? 'checked="checked"':''}}"> Inadimplente?
+        <input id="defaulter" name="defaulter" type="checkbox" {{old('defaulter',$client->defaulter) ? 'checked="checked"':''}}> Inadimplente?
     </label>
 </div>
